@@ -1,5 +1,5 @@
 #include "ros/ros.h"
-#include "dimo_homework/Choice.h"
+#include "homework_1/Choice.h"
 #include <unistd.h>
 #include <termios.h>
 
@@ -39,14 +39,14 @@ int main(int argc, char **argv)
   
   char choice;
 
-  ros::Publisher chatter_pub = n.advertise<dimo_homework::Choice>("Selected_choice", 1000); 
+  ros::Publisher chatter_pub = n.advertise<homework_1::Choice>("Selected_choice", 1000); 
 
   puts("Select which part of the message do you want to show <a/e/n/c>: ");
   puts("--------------------------------------------------------------");
 
   while(ros::ok()){
     
-    dimo_homework::Choice msg;
+    homework_1::Choice msg;
 
 
     choice = getch();

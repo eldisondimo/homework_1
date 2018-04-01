@@ -1,12 +1,12 @@
 #include "ros/ros.h"
-#include "dimo_homework/Data.h"
-#include "dimo_homework/Choice.h"
+#include "homework_1/Data.h"
+#include "homework_1/Choice.h"
 #include <string>
 
 
 char choice = 'a';
 
-void printMessageCallback(const dimo_homework::Data::ConstPtr& msg)
+void printMessageCallback(const homework_1::Data::ConstPtr& msg)
 {
 
   switch(choice){
@@ -29,7 +29,7 @@ void printMessageCallback(const dimo_homework::Data::ConstPtr& msg)
 
 }
 
-void getChoiceCallback(const dimo_homework::Choice::ConstPtr& msg){
+void getChoiceCallback(const homework_1::Choice::ConstPtr& msg){
 
   choice = msg->choice;
 

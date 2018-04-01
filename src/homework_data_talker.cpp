@@ -1,7 +1,7 @@
 
 #include "ros/ros.h"
 // Have to include the message previously created
-#include "dimo_homework/Data.h"
+#include "homework_1/Data.h"
 #include <sstream>
 #include <vector>
 #include <stdlib.h>
@@ -23,7 +23,7 @@ int main(int argc, char **argv)
 
   // Creo un topic Homework_1 sul quale pubblicare messaggi di tipo 'Data' che ho precedentemente creato nella cartella
   // msg
-  ros::Publisher chatter_pub = n.advertise<dimo_homework::Data>("Message_data", 1000);
+  ros::Publisher chatter_pub = n.advertise<homework_1::Data>("Message_data", 1000);
 
   // Il talker pubblica il messaggio 1 volta al sec
   ros::Rate loop_rate(1);
@@ -34,7 +34,7 @@ int main(int argc, char **argv)
     /**
      * This is a message object.
      */
-    dimo_homework::Data msg;
+    homework_1::Data msg;
     
 
     msg.eta = (rand()%40)+19;
