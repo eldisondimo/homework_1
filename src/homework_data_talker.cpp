@@ -17,6 +17,8 @@ int main(int argc, char **argv)
   const char *list[] = {"Andrea" , "Eldison", "Marco", "Luca", "Antonio", "Alessia", "Marta"};
   std::vector<std::string> names(list, list + 7);
 
+  const char *courses[6] = {"Ingegneria e Scienze Informatiche", "Biotecnologie", "Matematica", "Lettere", "Lingue", "Economia"};
+
   ros::init(argc, argv, "talker");
 
   ros::NodeHandle n;
@@ -39,7 +41,7 @@ int main(int argc, char **argv)
 
     msg.eta = (rand()%40)+19;
     msg.nome = names[rand()%7];
-    msg.corso_laurea = "Corso di laurea in Ingegneria e Scienze Informatiche";
+    msg.corso_laurea = courses[rand()%6];
 
     	// stampo le info a terminale
     ROS_INFO("\nInvio\nNome: %s\nEta':%d\nCorso di laurea: %s\n", msg.nome.c_str(), msg.eta, msg.corso_laurea.c_str());
