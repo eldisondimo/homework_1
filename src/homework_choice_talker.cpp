@@ -3,7 +3,7 @@
 #include <unistd.h>
 #include <termios.h>
 
-// Funzione utilizzare per acqiusire un carattere da tastiera senza attendere l'invio
+// Get a char from the input keyboard without waiting the enter pressed button
 char getch() {
         
 char buf = 0;

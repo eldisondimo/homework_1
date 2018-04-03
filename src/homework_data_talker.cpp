@@ -17,20 +17,20 @@ int main(int argc, char **argv)
   const char *list[] = {"Andrea" , "Eldison", "Marco", "Luca", "Antonio", "Alessia", "Marta"};
   std::vector<std::string> names(list, list + 7);
 
+  // Select a random course
   const char *courses[6] = {"Ingegneria e Scienze Informatiche", "Biotecnologie", "Matematica", "Lettere", "Lingue", "Economia"};
 
   ros::init(argc, argv, "talker");
 
   ros::NodeHandle n;
 
-  // Creo un topic Homework_1 sul quale pubblicare messaggi di tipo 'Data' che ho precedentemente creato nella cartella
-  // msg
+  // Create the topic "Message_data" 
   ros::Publisher chatter_pub = n.advertise<homework_1::Data>("Message_data", 1000);
 
-  // Il talker pubblica il messaggio 1 volta al sec
+  // Talker publishes 1 time per sec
   ros::Rate loop_rate(1);
 
-  // Finchè non decido di uscire
+  // Until cltr-c isn't pressed yet
   while (ros::ok())
   {
     /**
@@ -43,16 +43,15 @@ int main(int argc, char **argv)
     msg.nome = names[rand()%7];
     msg.corso_laurea = courses[rand()%6];
 
-    	// stampo le info a terminale
     ROS_INFO("\nInvio\nNome: %s\nEta':%d\nCorso di laurea: %s\n", msg.nome.c_str(), msg.eta, msg.corso_laurea.c_str());
 
-    // pubblico il messaggio
+    // publishing the message
     chatter_pub.publish(msg);
 
 
     ros::spinOnce();
 
-    // Fermati finchè non è passato 1 secondo
+    // wait until 1 sec isn't passed
     loop_rate.sleep();
 
   }
