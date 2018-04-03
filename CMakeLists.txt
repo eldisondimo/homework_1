@@ -106,7 +106,7 @@ generate_messages(
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES dimo_homework
-#  CATKIN_DEPENDS roscpp rospy std_msgs
+  CATKIN_DEPENDS message_runtime roscpp rospy std_msgs
 #  DEPENDS system_lib
 )
 
@@ -123,7 +123,7 @@ include_directories(
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
-#   src/${PROJECT_NAME}/dimo_homework.cpp
+#   src/${PROJECT_NAME}/homework.cpp
 # )
 
 ## Add cmake target dependencies of the library
@@ -200,12 +200,12 @@ include_directories(
 # catkin_add_nosetests(test)
 add_executable(homework_data_talker src/homework_data_talker.cpp)
 target_link_libraries(homework_data_talker ${catkin_LIBRARIES})
-add_dependencies(homework_data_talker dimo_homework_generate_messages_cpp)
+add_dependencies(homework_data_talker homework_1_generate_messages_cpp)
 
 add_executable(homework_choice_talker src/homework_choice_talker.cpp)
 target_link_libraries(homework_choice_talker ${catkin_LIBRARIES})
-add_dependencies(homework_choice_talker dimo_homework_generate_messages_cpp)
+add_dependencies(homework_choice_talker homework_1_generate_messages_cpp)
 
 add_executable(message_filtered_listener src/message_filtered_listener.cpp)
 target_link_libraries(message_filtered_listener ${catkin_LIBRARIES})
-add_dependencies(message_filtered_listener dimo_homework_generate_messages_cpp)
+add_dependencies(message_filtered_listener homework_1_generate_messages_cpp)
